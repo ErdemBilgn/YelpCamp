@@ -1,4 +1,4 @@
-const map = L.map("map").setView([40.66995747013945, -103.59179687498357], 3);
+const map = L.map("cluster-map").setView([40.66995747013945, -103.59179687498357], 3);
 
 L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png")
     .addTo(map);
