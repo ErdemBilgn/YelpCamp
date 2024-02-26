@@ -2,7 +2,6 @@ if(process.env.NODE_ENV !== "production"){
   require("dotenv").config();
 }
 
-
 const express = require("express");
 const path = require("path");
 const ejsMate = require("ejs-mate");
@@ -18,6 +17,7 @@ const reviewRoutes = require("./routes/reviews")
 const userRoutes = require("./routes/users")
 
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 const passport = require("passport");
 const localStrategy = require("passport-local")
@@ -26,7 +26,9 @@ const User = require("./models/user")
 
 const mongoSanitize = require('express-mongo-sanitize');
 
-mongoose.connect("mongodb://127.0.0.1:27017/YelpCampDB");
+// "mongodb://127.0.0.1:27017/YelpCampDB"
+const dbUrl = process.env.MONGO_URL;
+mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error"));
@@ -47,7 +49,16 @@ app.use(mongoSanitize({
   replaceWith: '_',
 }))
 
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  touchAfter: 24 * 60 * 60,
+  crypto: {
+    secret: "secret"
+  }
+});
+
 const sessionConfig = {
+  store,
   name: 'session',
   secret: 'secret',
   resave: false,
