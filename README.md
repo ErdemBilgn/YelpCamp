@@ -38,7 +38,7 @@ To start the project: </br>
 
 #### Campground View Page:
 
-![CampgroundView](OverviewImages/CampgroundView.PNG)
+![CampgroundView](OverviewImages/CamgroundView.PNG)
 
 #### New Campground Page:
 
