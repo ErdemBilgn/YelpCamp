@@ -6,7 +6,11 @@ A campground site created using EJS templates , Express JS and MongoDB
 
 ### Project-Demo-Link -- https://yelpcamp-sc47.onrender.com
 
-### Project-Overview-Video -- https://youtu.be/9bHKsMg3WO8
+### Project-Overview-Video:
+
+Click on the image to watch the preview video!
+
+[![project-overview](https://img.youtube.com/vi/9bHKsMg3WO8/0.jpg)](https://www.youtube.com/watch?v=9bHKsMg3WO8)
 
 ## Project
 
